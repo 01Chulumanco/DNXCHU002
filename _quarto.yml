@@ -1,0 +1,22 @@
+project:
+  type: book
+  output-dir: _book
+  preview: 
+    browser: true
+
+book:
+  title: "My Quarto Book"
+  author: "Liseko Dana"
+  date: today
+  chapters:
+    - index.qmd
+    - DNXCHU002.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+  pdf:
+    documentclass: scrbook
+
+
