@@ -1,0 +1,52 @@
+[
+  {
+    "objectID": "DNXCHU002.html",
+    "href": "DNXCHU002.html",
+    "title": "2  Assignment 2",
+    "section": "",
+    "text": "2.1 Question 1\n#Define a function that returns the mean and variance of a vector\nmean.variance&lt;- function(x){\n  mean_&lt;- mean(x)\n  variance_&lt;- var(x)\n  vec&lt;- c(mean_,variance_)\n  return(c(mean_,variance_))\n}\nresult&lt;- foreach(i=1:100,combine=rbind)%do%{\n  sampled&lt;- rexp(5000,1)\n  mean.variance(sampled)\n}\nresult\n\n[[1]]\n[1] 1.006413 0.990844\n\n[[2]]\n[1] 1.0012981 0.9945846\n\n[[3]]\n[1] 1.009870 1.082486\n\n[[4]]\n[1] 0.9780698 0.9644991\n\n[[5]]\n[1] 1.0014228 0.9923523\n\n[[6]]\n[1] 0.9794019 0.9664322\n\n[[7]]\n[1] 0.9985984 0.9112189\n\n[[8]]\n[1] 0.9937437 0.9965426\n\n[[9]]\n[1] 0.9970878 0.9774941\n\n[[10]]\n[1] 0.9768641 0.9449424\n\n[[11]]\n[1] 0.9641468 0.9295257\n\n[[12]]\n[1] 0.9893309 0.9589597\n\n[[13]]\n[1] 0.9945761 1.0626327\n\n[[14]]\n[1] 1.016049 1.043141\n\n[[15]]\n[1] 1.019003 1.007892\n\n[[16]]\n[1] 1.014766 1.053952\n\n[[17]]\n[1] 0.9956713 0.9912682\n\n[[18]]\n[1] 1.013043 1.038566\n\n[[19]]\n[1] 0.990282 0.940398\n\n[[20]]\n[1] 0.9977148 0.9570092\n\n[[21]]\n[1] 0.9938976 1.0388437\n\n[[22]]\n[1] 1.00871 1.01031\n\n[[23]]\n[1] 0.9856361 1.0077280\n\n[[24]]\n[1] 0.9904887 1.0170783\n\n[[25]]\n[1] 0.9926669 0.9953604\n\n[[26]]\n[1] 0.9686687 0.9021124\n\n[[27]]\n[1] 1.0110623 0.9926191\n\n[[28]]\n[1] 0.9924695 1.0023642\n\n[[29]]\n[1] 0.9932162 0.9871840\n\n[[30]]\n[1] 0.9899280 0.9734644\n\n[[31]]\n[1] 0.9993941 0.9714243\n\n[[32]]\n[1] 0.9961056 1.0099513\n\n[[33]]\n[1] 0.999071 0.995067\n\n[[34]]\n[1] 0.9989392 0.9663956\n\n[[35]]\n[1] 0.9963143 0.9802892\n\n[[36]]\n[1] 1.0044854 0.9992675\n\n[[37]]\n[1] 0.9998791 1.0283763\n\n[[38]]\n[1] 1.003161 1.013162\n\n[[39]]\n[1] 1.0099471 0.9860349\n\n[[40]]\n[1] 0.9779943 1.0134696\n\n[[41]]\n[1] 0.9989549 0.9424903\n\n[[42]]\n[1] 0.9789003 0.9438878\n\n[[43]]\n[1] 0.9913701 0.9897220\n\n[[44]]\n[1] 1.021577 1.100867\n\n[[45]]\n[1] 0.9869234 0.9857235\n\n[[46]]\n[1] 0.9781108 0.9778997\n\n[[47]]\n[1] 0.9911466 0.9856962\n\n[[48]]\n[1] 0.999480 1.018352\n\n[[49]]\n[1] 1.009650 1.037009\n\n[[50]]\n[1] 1.021774 1.074018\n\n[[51]]\n[1] 1.0072911 0.9818676\n\n[[52]]\n[1] 0.9900033 0.9537050\n\n[[53]]\n[1] 0.9699279 0.9763412\n\n[[54]]\n[1] 0.9993443 1.0082094\n\n[[55]]\n[1] 0.9800759 0.9778499\n\n[[56]]\n[1] 0.9981151 1.0402328\n\n[[57]]\n[1] 0.972811 0.949118\n\n[[58]]\n[1] 1.008978 1.058093\n\n[[59]]\n[1] 1.010804 1.039433\n\n[[60]]\n[1] 1.017074 1.020749\n\n[[61]]\n[1] 1.023524 1.101064\n\n[[62]]\n[1] 1.0046858 0.9861188\n\n[[63]]\n[1] 1.021397 1.018807\n\n[[64]]\n[1] 1.0138483 0.9903386\n\n[[65]]\n[1] 0.9961222 1.0247538\n\n[[66]]\n[1] 1.010515 1.058504\n\n[[67]]\n[1] 0.9873419 0.9762481\n\n[[68]]\n[1] 0.9939914 0.9948517\n\n[[69]]\n[1] 1.005090 1.031914\n\n[[70]]\n[1] 0.9847364 0.9836514\n\n[[71]]\n[1] 0.969984 0.947942\n\n[[72]]\n[1] 0.9963474 1.0365003\n\n[[73]]\n[1] 0.9753749 0.9777854\n\n[[74]]\n[1] 0.9979254 0.9520894\n\n[[75]]\n[1] 1.016325 1.035516\n\n[[76]]\n[1] 1.000267 1.018247\n\n[[77]]\n[1] 0.9802139 0.9833678\n\n[[78]]\n[1] 0.9975646 1.0556332\n\n[[79]]\n[1] 0.9860756 0.9591417\n\n[[80]]\n[1] 0.9739859 0.9766733\n\n[[81]]\n[1] 1.0172391 0.9966783\n\n[[82]]\n[1] 1.009412 1.033183\n\n[[83]]\n[1] 1.005087 1.006785\n\n[[84]]\n[1] 1.003047 1.065754\n\n[[85]]\n[1] 1.014066 1.027209\n\n[[86]]\n[1] 0.9980497 0.9837427\n\n[[87]]\n[1] 1.032842 1.035235\n\n[[88]]\n[1] 1.0033533 0.9868578\n\n[[89]]\n[1] 1.0059434 0.9849184\n\n[[90]]\n[1] 0.9785620 0.9689708\n\n[[91]]\n[1] 0.9640539 0.9465615\n\n[[92]]\n[1] 0.9987037 0.9699541\n\n[[93]]\n[1] 0.9904612 0.9630141\n\n[[94]]\n[1] 1.004170 1.016198\n\n[[95]]\n[1] 1.028646 1.052058\n\n[[96]]\n[1] 0.9969472 1.0102416\n\n[[97]]\n[1] 0.9929332 0.9808601\n\n[[98]]\n[1] 0.9878742 0.9785046\n\n[[99]]\n[1] 1.015203 1.032405\n\n[[100]]\n[1] 1.012590 1.083437",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2</span>"
+    ]
+  },
+  {
+    "objectID": "DNXCHU002.html#question-2",
+    "href": "DNXCHU002.html#question-2",
+    "title": "2  Assignment 2",
+    "section": "2.2 Question 2",
+    "text": "2.2 Question 2\n\ncl&lt;- makeCluster(4)\nregisterDoParallel(cl)\n\n#Set no of Bootstrapping samples\nB&lt;- 1000\n\n#Parallel bootsrapping\nsystem.time(result2&lt;- foreach(i=1:B,combine=rbind,.packages = 'MASS')%dopar%{\n  \n  median(sample(galaxies,replace =TRUE))\n})\n\n   user  system elapsed \n   0.40    0.04    0.88 \n\nstopCluster(cl)\n\n#Serial bootstrapping for comparison \nsystem.time(result2&lt;- foreach(i=1:B,combine=c,.packages = 'MASS')%do%{\n  \n  median(sample(galaxies,replace =TRUE))\n})\n\n   user  system elapsed \n   0.36    0.00    0.47",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2</span>"
+    ]
+  },
+  {
+    "objectID": "DNXCHU002.html#question-3",
+    "href": "DNXCHU002.html#question-3",
+    "title": "2  Assignment 2",
+    "section": "2.3 Question 3",
+    "text": "2.3 Question 3\n\nset.seed(1234)\n#samples from exponential \n\nexp.samples&lt;- rexp(n=50,rate=1)\n\nactual_mean&lt;- 1\n\nB&lt;- 1000\n\ncover&lt;-0 #No of confidence intervals\n  \nfor(i in 1:1000)\n  {\n  sampled&lt;- rexp(50,1)\n  \n  #Bootsrap samples\n  boot_mean&lt;- function(data, indices) {\n    return(mean(data[indices]))\n }\n\n  boot_res &lt;- boot(sampled,boot_mean,R=B)\n  \n  \n  #percentile bootsrap\n  ci&lt;- boot.ci(boot_res,type=\"perc\")$percent[4:5]\n  \n  if (!is.null(ci) && actual_mean &gt;= ci[1] && actual_mean &lt;= ci[2]) {\n    cover &lt;- cover + 1\n    \n  }\n  \n}\n\n#Estimated coverage probability\n\ncov.prob&lt;- cover/1000 \n\ncov.prob\n\n[1] 0.929",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2</span>"
+    ]
+  },
+  {
+    "objectID": "DNXCHU002.html#question-4",
+    "href": "DNXCHU002.html#question-4",
+    "title": "2  Assignment 2",
+    "section": "2.4 Question 4",
+    "text": "2.4 Question 4\n\n# Set seed \nset.seed(1234)\n\n# Convert iterator output to a list \nrandom_vectors_list &lt;- as.list(irnorm(5, count = 3))\n\n# Register a parallel backend \nnum_cores &lt;- parallel::detectCores(logical = FALSE)\nif (num_cores &gt; 1) {\n  cl &lt;- makeCluster(min(2, num_cores))  # Use up to 2 cores\n  registerDoParallel(cl)\n} else {\n  registerDoSEQ() \n}\n\n# Use foreach \nresult3 &lt;- foreach(v = random_vectors_list, .combine = c) %dopar% {\n  max(v)\n}\n\n# Stop the parallel cluster\nif (exists(\"cl\")) stopCluster(cl)\n\nprint(result3)\n\n[1] 1.0844412 0.5060559 0.9594941",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2</span>"
+    ]
+  },
+  {
+    "objectID": "DNXCHU002.html#question-5",
+    "href": "DNXCHU002.html#question-5",
+    "title": "2  Assignment 2",
+    "section": "2.5 Question 5",
+    "text": "2.5 Question 5\n\n# Set seed \nset.seed(1234)\n\n# Generate random vectors\nrandom_vectors_list &lt;- as.list(replicate(3, rnorm(5), simplify = FALSE))\n\n# Register parallel backend\nnum_cores &lt;- detectCores(logical = FALSE)\ncl &lt;- makeCluster(min(2, num_cores))\nregisterDoParallel(cl)\n\n#Using parLapply\nsystem.time({\n  res_parLapply &lt;- parLapply(cl, random_vectors_list, max)\n})\n\n   user  system elapsed \n      0       0       0 \n\n#Using foreach with %dopar%\nsystem.time({\n  result_foreach &lt;- foreach(v = random_vectors_list, .combine = c) %dopar% {\n    Sys.sleep(0.001)\n    max(v)\n  }\n})\n\n   user  system elapsed \n   0.00    0.00    0.07 \n\n# Using replicate\nsystem.time({\n  result_replicate &lt;- sapply(random_vectors_list, max)\n})\n\n   user  system elapsed \n      0       0       0 \n\n# Stop the cluster\nstopCluster(cl)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Assignment 2</span>"
+    ]
+  }
+]

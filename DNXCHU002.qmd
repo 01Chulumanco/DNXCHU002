@@ -1,11 +1,187 @@
 ---
-title: "DNXCHU002"
+title: "Assignment 2"
+author: "Liseko Dana"
+date: today
+format: html
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
 ```{r}
-1 + 1
+#| echo: false
+#| warning: false
+#| 
+#Load Libraries
+library(foreach)
+library(doParallel)
+library(parallel)
+library(MASS)
+library(iterators)
+library(boot)
+```
+
+
+## Question 1
+
+```{r}
+#| echo: true
+#| warning: false
+
+#Define a function that returns the mean and variance of a vector
+mean.variance<- function(x){
+  mean_<- mean(x)
+  variance_<- var(x)
+  vec<- c(mean_,variance_)
+  return(c(mean_,variance_))
+}
+result<- foreach(i=1:100,combine=rbind)%do%{
+  sampled<- rexp(5000,1)
+  mean.variance(sampled)
+}
+result
+```
+
+## Question 2
+
+```{r}
+#| echo: true
+#| warning: false
+cl<- makeCluster(4)
+registerDoParallel(cl)
+
+#Set no of Bootstrapping samples
+B<- 1000
+
+#Parallel bootsrapping
+system.time(result2<- foreach(i=1:B,combine=rbind,.packages = 'MASS')%dopar%{
+  
+  median(sample(galaxies,replace =TRUE))
+})
+
+stopCluster(cl)
+
+#Serial bootstrapping for comparison 
+system.time(result2<- foreach(i=1:B,combine=c,.packages = 'MASS')%do%{
+  
+  median(sample(galaxies,replace =TRUE))
+})
+
+```
+
+## Question 3
+
+```{r}
+#| echo: true
+#| warning: false
+set.seed(1234)
+#samples from exponential 
+
+exp.samples<- rexp(n=50,rate=1)
+
+actual_mean<- 1
+
+B<- 1000
+
+cover<-0 #No of confidence intervals
+  
+for(i in 1:1000)
+  {
+  sampled<- rexp(50,1)
+  
+  #Bootsrap samples
+  boot_mean<- function(data, indices) {
+    return(mean(data[indices]))
+ }
+
+  boot_res <- boot(sampled,boot_mean,R=B)
+  
+  
+  #percentile bootsrap
+  ci<- boot.ci(boot_res,type="perc")$percent[4:5]
+  
+  if (!is.null(ci) && actual_mean >= ci[1] && actual_mean <= ci[2]) {
+    cover <- cover + 1
+    
+  }
+  
+}
+
+#Estimated coverage probability
+
+cov.prob<- cover/1000 
+
+cov.prob
+
+
+```
+
+## Question 4
+
+```{r}
+#| echo: true
+#| warning: false
+# Set seed 
+set.seed(1234)
+
+# Convert iterator output to a list 
+random_vectors_list <- as.list(irnorm(5, count = 3))
+
+# Register a parallel backend 
+num_cores <- parallel::detectCores(logical = FALSE)
+if (num_cores > 1) {
+  cl <- makeCluster(min(2, num_cores))  # Use up to 2 cores
+  registerDoParallel(cl)
+} else {
+  registerDoSEQ() 
+}
+
+# Use foreach 
+result3 <- foreach(v = random_vectors_list, .combine = c) %dopar% {
+  max(v)
+}
+
+# Stop the parallel cluster
+if (exists("cl")) stopCluster(cl)
+
+print(result3)
+
+```
+
+## Question 5
+
+```{r}
+#| echo: true
+#| warning: false
+
+# Set seed 
+set.seed(1234)
+
+# Generate random vectors
+random_vectors_list <- as.list(replicate(3, rnorm(5), simplify = FALSE))
+
+# Register parallel backend
+num_cores <- detectCores(logical = FALSE)
+cl <- makeCluster(min(2, num_cores))
+registerDoParallel(cl)
+
+#Using parLapply
+system.time({
+  res_parLapply <- parLapply(cl, random_vectors_list, max)
+})
+
+#Using foreach with %dopar%
+system.time({
+  result_foreach <- foreach(v = random_vectors_list, .combine = c) %dopar% {
+    Sys.sleep(0.001)
+    max(v)
+  }
+})
+
+# Using replicate
+system.time({
+  result_replicate <- sapply(random_vectors_list, max)
+})
+
+# Stop the cluster
+stopCluster(cl)
+
 ```
